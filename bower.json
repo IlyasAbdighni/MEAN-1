@@ -1,0 +1,26 @@
+{
+  "name": "mean_1_ejs",
+  "description": "this is an angular application powered by node js",
+  "main": "server.js",
+  "authors": [
+    "ilyas (udunig@gmail.com)"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/IlyasAbdighni/MEAN-1",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "install": {
+    "path": "public/libs"
+  },
+  "dependencies": {
+    "angular": "^1.5.6",
+    "bootstrap": "^3.3.6",
+    "jquery": "^3.0.0",
+    "angular-ui-router": "*"
+  }
+}

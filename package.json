@@ -1,0 +1,27 @@
+{
+  "name": "mean_1_ejs",
+  "version": "0.0.1",
+  "description": "this is an angular application powered by node js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IlyasAbdighni/MEAN-1.git"
+  },
+  "author": "ilyas (udunig@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IlyasAbdighni/MEAN-1/issues"
+  },
+  "homepage": "https://github.com/IlyasAbdighni/MEAN-1#readme",
+  "dependencies": {
+    "ejs": "^2.4.2",
+    "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.13.0",
+    "gulp": "^3.9.1"
+  }
+}
