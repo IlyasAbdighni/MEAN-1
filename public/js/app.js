@@ -1,4 +1,4 @@
-angular.module('myApp', ['ui.router'])
+angular.module('myApp', ['ui.router', 'ngResource'])
 	.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouteProvider, $locationProvider) {
 
 	$urlRouteProvider.otherwise('/');
@@ -20,6 +20,11 @@ angular.module('myApp', ['ui.router'])
 			url: '/contact',
 			templateUrl: 'partials/contact.html',
 			controller: 'contactCtrl'
+		})
+		.state('contact.form', {
+			url: '/form',
+			templateUrl: 'partials/form/customerForm.html',
+			controller: 'formCtrl'
 		})
 
 }])
