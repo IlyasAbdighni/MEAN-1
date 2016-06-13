@@ -2,8 +2,7 @@
 var Customer = require('../models/customer');
 
 module.exports = function(router){
-	router.post('/customer', function(req, res) {
-		console.log(req.body);
+	router.post('/customers', function(req, res) {
 		var customer = new Customer;
 
 		customer.firstname = req.body.firstname;
@@ -28,6 +27,7 @@ module.exports = function(router){
 
 	router.get('/customers', function(req, res){
 		Customer.find({}, function(err, data) {
+			if(err) throw err;
 			res.json(data);
 		});
 	});

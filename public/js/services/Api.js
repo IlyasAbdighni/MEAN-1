@@ -2,6 +2,6 @@ angular.module('myApp')
 	.factory('api', ['$resource',function ($resource) {
 		
 		return {
-			customer: $resource('/api/customer/:id', {id: '@id'})
+			customer: $resource('/api/customers/:id', {id: '@id'})
 		}
 	}]);

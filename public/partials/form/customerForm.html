@@ -1,49 +1,81 @@
-<form class="form-horizontal" name="form">
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">Firstname</label>
-    <div class="col-sm-10">
-      <input name="firstname" type="text" class="form-control" id="firstname" placeholder="firstname" ng-model="formData.firstname">
-    </div>
+<div class="row">
+  <div class="col-md-6">
+    <form class="form-horizontal" name="form">
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Firstname</label>
+        <div class="col-sm-10">
+          <input name="firstname" type="text" class="form-control" id="firstname" placeholder="firstname" ng-model="formData.firstname">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Lastname</label>
+        <div class="col-sm-10">
+          <input name="lastname" type="text" class="form-control" id="lastname" placeholder="lastname" ng-model="formData.lastname">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Phone</label>
+        <div class="col-sm-10">
+          <input name="phone" type="text" class="form-control" id="phone" placeholder="phone" ng-model="formData.phone">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Street Adress</label>
+        <div class="col-sm-10">
+          <input name="street" type="text" class="form-control" id="street" placeholder="Street Adress" ng-model="formData.address.street">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">City</label>
+        <div class="col-sm-10">
+          <input name="city" type="text" class="form-control" id="city" placeholder="city" ng-model="formData.address.city">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">State</label>
+        <div class="col-sm-10">
+          <input name="state" type="text" class="form-control" id="state" placeholder="State" ng-model="formData.address.state">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Zip</label>
+        <div class="col-sm-10">
+          <input name="zip" type="text" class="form-control" id="zip" placeholder="Zip" ng-model="formData.address.zip">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-default" ng-click="addToDatabase()">add customer</button>
+        </div>
+      </div>
+    </form>
   </div>
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">Lastname</label>
-    <div class="col-sm-10">
-      <input name="lastname" type="text" class="form-control" id="lastname" placeholder="lastname" ng-model="formData.lastname">
-    </div>
+  <div class="col-md-6">
+    <div class="customer-table">
+     <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="customer in customers | startFrom: (currentPage -1) * pageSize | limitTo: pageSize" >
+          <td>{{customer.firstname}}.{{customer.lastname}}</td>
+          <td>{{customer.phone}}</td>
+          <td>{{customer.address.street}} <br>
+            {{customer.address.city}},{{customer.address.state}} <br>
+            {{customer.address.zip}} 
+          </td>
+          <td class="glyphicon glyphicon-trash" ng-click="delete((currentPage - 1) * pageSize +  $index)"></td>
+        </tr>
+      </tbody>
+    </table>  
   </div>
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">Phone</label>
-    <div class="col-sm-10">
-      <input name="phone" type="text" class="form-control" id="phone" placeholder="phone" ng-model="formData.phone">
-    </div>
+
+  <uib-pagination total-items="customers.length" ng-model="currentPage" items-per-page="pageSize"></uib-pagination>
+     
   </div>
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">Street Adress</label>
-    <div class="col-sm-10">
-      <input name="street" type="text" class="form-control" id="street" placeholder="Street Adress" ng-model="formData.address.street">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">City</label>
-    <div class="col-sm-10">
-      <input name="city" type="text" class="form-control" id="city" placeholder="city" ng-model="formData.address.city">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">State</label>
-    <div class="col-sm-10">
-      <input name="state" type="text" class="form-control" id="state" placeholder="State" ng-model="formData.address.state">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">Zip</label>
-    <div class="col-sm-10">
-      <input name="zip" type="text" class="form-control" id="zip" placeholder="Zip" ng-model="formData.address.zip">
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default" ng-click="addToDatabase()">add customer</button>
-    </div>
-  </div>
-</form>
+</div>
+

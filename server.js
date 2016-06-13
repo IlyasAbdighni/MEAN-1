@@ -15,6 +15,9 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'public', 'views'));
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(methosOverride());
 
 var port = process.env.PORT || 3000;
 
